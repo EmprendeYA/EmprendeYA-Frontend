@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear o editar usuario</title>
+  <link rel="stylesheet" type="text/css" href="/src/app/component/user/user-crearedita/user-crearedita.component.css">
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="font-family:'Lucida Sans'">Datos de Usuarios</h1>
+  </div>
+  <form [formGroup]="form" (submit)="aceptar()" class="formulario">
+    <mat-form-field class="example-full-width">
+      <mat-label>Código</mat-label>
+      <input matInput required placeholder="Código" formControlName="id">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Tipo</mat-label>
+      <input matInput required placeholder="Tipo" formControlName="tipo">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Correo</mat-label>
+      <input matInput required placeholder="Correo" formControlName="correo">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Contraseña</mat-label>
+      <input matInput required placeholder="Contraseña" formControlName="contrasena">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Num. Telefono</mat-label>
+      <input matInput required placeholder="Num. Telefono" formControlName="NumTelefono">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Cuenta FB</mat-label>
+      <input matInput required placeholder="Cuenta FB" formControlName="CuentaFB">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Cuenta GMAIL</mat-label>
+      <input matInput required placeholder="Cuenta GMAIL" formControlName="CuentaGMAIL">
+    </mat-form-field>
+
+    <div class="container">
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/users" >Cancelar</button>
+  </div>
+    <p>{{mensaje}}</p>
+  </form>
+</body>
+</html>

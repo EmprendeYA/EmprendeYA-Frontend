@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div style="text-align: center">
+        <h1 style="font-family:'Lucida Sans'">Lista de benefactores</h1>
+      </div>
+    <div class="filtrado">
+      <mat-form-field>
+        <input matInput (keyup)=filtrer($event) placeholder="buscar"/>
+      </mat-form-field>
+      <button class="btn"
+       mat-raised-button color="primary"
+       routerLink="/benefactors/nuevo">Agregar</button>
+      </div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!--- Note that these columns can be defined in any order.
+
+         The actual rendered columns are set as a property on the row definition" -->
+
+        <!-- Position Column -->
+
+        <ng-container matColumnDef="Codigo">
+          <th mat-header-cell *matHeaderCellDef>Codigo</th>
+
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+
+        <ng-container matColumnDef="Nombre">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+
+          <td mat-cell *matCellDef="let element">
+            {{ element.nameBenefactor }}
+          </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+
+        <ng-container matColumnDef="Ocupacion">
+          <th mat-header-cell *matHeaderCellDef>Ocupación</th>
+
+          <td mat-cell *matCellDef="let element">{{ element.ocupation }}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+
+        <ng-container matColumnDef="Intereses">
+          <th mat-header-cell *matHeaderCellDef>Intereses</th>
+
+          <td mat-cell *matCellDef="let element">{{ element.interest }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="acciones1">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="primary" [routerLink]="['edicion',element.id]">Actualizar</button>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="acciones2">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-raised-button color="warn" (click)="confirm(element.id)"><span class="material-icons">delete</span></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </body>
+</html>

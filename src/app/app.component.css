@@ -1,0 +1,12 @@
+mat-toolbar
+{
+  display:flex;
+  justify-content: space-between;
+  color:white;
+  background-color: #cb6ce6;
+}
+span
+{
+margin-left: 10px;
+}
+

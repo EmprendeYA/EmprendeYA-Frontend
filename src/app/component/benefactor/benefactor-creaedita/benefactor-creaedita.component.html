@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+    <div style="text-align: center;">
+      <h1 style="font-family:'Lucida Sans'">Datos del Benefactor</h1>
+    </div>
+  <form [formGroup]="form"(submit)="aceptar()">
+    <mat-form-field class="example-full-width">
+      <mat-label>Código</mat-label>
+      <input matInput required placeholder="Código" formControlName = "id">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input matInput required placeholder="Nombre" formControlName = "nameBenefactor">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Ocupation</mat-label>
+      <input matInput required placeholder="ingrese ocupacion" formControlName = "ocupation">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Interest</mat-label>
+      <input matInput required placeholder="ingrese interes" formControlName = "interest">
+    </mat-form-field>
+
+<div class="container">
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/benefactors">Cancelar</button>
+  </div>
+    <br>
+    <p>{{mensaje}}</p>
+</form>
+</body>
+</html>
