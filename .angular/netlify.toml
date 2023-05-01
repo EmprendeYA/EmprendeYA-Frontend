@@ -1,11 +1,8 @@
 [build]
-  command = "ng build --prod && npm run json-server"
-  publish = "dist/demoCrud"
+  command = "ng build --prod && json-server --watch db.json"
+  publish = "dist"
 
 [dev]
-  command = "ng serve --open"
+  command = "ng serve --open && json-server --watch db.json"
+  publish = "dist"
 
-[[redirects]]
-  from = "/api/*"
-  to = "http://localhost:3000/:splat"
-  status = 200
