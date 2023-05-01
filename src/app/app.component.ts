@@ -11,7 +11,7 @@ export class AppComponent {
   serverData: any;
   constructor(private http: HttpClient) {}
   ngOnInit() {
-    this.http.get('http://localhost:3000').subscribe(data => {
+    this.http.get('http://localhost:5000').subscribe(data => {
       this.serverData = data;
       console.log(this.serverData);
     });
