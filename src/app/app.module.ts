@@ -4,7 +4,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClient,HttpClientModule} from '@angular/common/http';
 import { BenefactorComponent } from './component/benefactor/benefactor.component';
 import { PreguntasComponent } from './component/preguntas/preguntas.component';
 import { EmprendedorComponent } from './component/emprendedor/emprendedor.component';
@@ -89,10 +89,22 @@ import { ComunicacionDialogoComponent } from './component/comunicacion/comunicac
     MatButtonModule,
     MatDialogModule,
     MatToolbarModule,
-    MatIconModule
-
+    MatIconModule,
+    HttpClient,
+    NgModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private httpClient: HttpClient) {
+
+  }
+  ngOnInit() {
+    this.httpClient.get('http://localhost:5000/demoCrud')
+      .subscribe((response) => {
+        console.log(response);
+      });
+  }
+
+}
