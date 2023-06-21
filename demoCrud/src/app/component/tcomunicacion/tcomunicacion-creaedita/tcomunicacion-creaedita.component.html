@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div style="text-align: center;">
+          <h1 style="font-family:'Lucida Sans'">Datos de Medio de Comunicación</h1>
+        </div>
+
+        <form [formGroup]="form"(submit)="aceptar()">
+          <mat-form-field class="example-full-width">
+            <mat-label>Código</mat-label>
+            <input matInput required placeholder="Código" formControlName = "id">
+          </mat-form-field>
+
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput required placeholder="nombre" formControlName = "nameTC">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Descripcion</mat-label>
+            <input matInput required placeholder="descripcion" formControlName = "descripcionTC">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Benefactor</mat-label>
+            <mat-select formControlName="benefactor" [(value)]="idBenefactorSeleccionado" required>
+            <mat-option *ngFor="let b of lista" [value]="b.id">
+                 {{b.nameBenefactor}}
+            </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Emprendedor</mat-label>
+            <mat-select formControlName="emprendedor" [(value)]="idEmprendedorSeleccionado" required>
+            <mat-option *ngFor="let e of lista1" [value]="e.id">
+                 {{e.nombreEmprendedor}}
+            </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="container">
+            <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+            <button mat-raised-button color="warn" routerLink="/TipodeComunicacion" >Cancelar</button>
+          </div>
+          <br>
+          <p>{{mensaje}}</p>
+
+
+    </form>
+
+</body>
+</html>

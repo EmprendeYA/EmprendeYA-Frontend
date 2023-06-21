@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+    <div style="text-align: center;">
+
+      <h1 style="font-family:'Lucida Sans'">Datos de Tipo de Contenido</h1>
+    </div>
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Código</mat-label>
+        <input matInput required placeholder="Código" formControlName="idTipodeContenido">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Nombre Tipo de Contenido</mat-label>
+        <input matInput required placeholder="Nombre Tipo de Contenido" formControlName="nombreTipodeContenido">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Descripcion de Tipo de Contenido</mat-label>
+        <input matInput required placeholder="Descripcion de Tipo de Contenido" formControlName="descripcionTipodeContenido">
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width">
+        <mat-label>Emprendedor</mat-label>
+        <mat-select formControlName="emprendedor" [(value)]="idEmprendedorSeleccionado" required>
+        <mat-option *ngFor="let e of lista1" [value]="e.id">
+             {{e.nombreEmprendedor}}
+        </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <div class="container">
+        <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/TipodeContenido" >Cancelar</button>
+      </div>
+      <p>{{mensaje}}</p>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div style="text-align: center">
+      <h1 style="font-family:'Lucida Sans'">Lista de Reseñas</h1>
+    </div>
+<div class="filtrado">
+    <mat-form-field>
+      <input matInput (keyup)=filtrer($event) placeholder="buscar"/>
+    </mat-form-field>
+    <button class="btn"
+     mat-raised-button color="primary"
+     routerLink="/resenas/nuevo">Agregar</button>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="Codigo">
+        <th mat-header-cell *matHeaderCellDef>Codigo</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Descripcion">
+        <th mat-header-cell *matHeaderCellDef>Descripción</th>
+
+        <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="emprendedor">
+        <th mat-header-cell *matHeaderCellDef>Emprendedor</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.emprendedor.nombreEmprendedor}}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones1">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" [routerLink]="['edicion',element.id]">Actualizar</button>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="acciones2">
+        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="warn" (click)="confirm(element.id)"><span class="material-icons">delete</span></button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayPlayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayPlayedColumns"></tr>
+      <mat-paginator  [pageSizeOptions]="[1, 3, 5]" aria-label="Select page of users"></mat-paginator>
+    </table>
+  </div>
+</body>
+</html>

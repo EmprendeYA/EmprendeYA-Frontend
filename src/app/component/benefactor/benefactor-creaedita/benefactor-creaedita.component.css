@@ -1,0 +1,16 @@
+mat-form-field {
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.container {
+  width: 19%; /* Ancho fijo */
+  margin: 0 auto; /* Margen automático para centrar */
+  display:flex;
+  justify-content: space-between;
+}
+
+
+
+

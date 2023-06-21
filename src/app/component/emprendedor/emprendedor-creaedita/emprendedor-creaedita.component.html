@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div style="text-align: center;">
+    <h1 style="font-family:'Lucida Sans'">Datos del Emprendedor</h1>
+  </div>
+<form [formGroup]="form" (submit)="aceptar()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Codigo</mat-label>
+    <input matInput required placeholder="ID" formControlName="id">
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Rubro</mat-label>
+    <input matInput required placeholder="Rubro" formControlName="rubroEmprendedor">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Nombre</mat-label>
+    <input matInput required placeholder="nombre" formControlName="nombreEmprendedor">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Apellido</mat-label>
+    <input matInput required placeholder="apellido" formControlName="apellidoEmprendedor">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Edad</mat-label>
+    <input matInput required placeholder="edad" formControlName="edadEmprendedor">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Benefactor</mat-label>
+    <mat-select formControlName="benefactor" [(value)]="idBenefactorSeleccionado" required>
+    <mat-option *ngFor="let b of lista" [value]="b.id">
+         {{b.nameBenefactor}}
+    </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="container">
+    <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/emprendedor">Cancelar</button>
+  </div>
+  <p>{{mensaje}}</p>
+  <br>
+</form>
+</body>
+</html>
