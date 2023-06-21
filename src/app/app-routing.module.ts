@@ -6,17 +6,18 @@ import { PreguntasComponent } from './component/preguntas/preguntas.component';
 import { PreguntasCreaeditaComponent } from './component/preguntas/preguntas-creaedita/preguntas-creaedita.component';
 import { EmprendedorComponent } from './component/emprendedor/emprendedor.component';
 import { EmprendedorCreaeditaComponent } from './component/emprendedor/emprendedor-creaedita/emprendedor-creaedita.component';
-import { UserComponent } from './component/user/user.component';
-import { UserCreareditaComponent } from './component/user/user-crearedita/user-crearedita.component';
 import { ResenaComponent } from './component/resena/resena.component';
 import { ResenaCreaeditaComponent } from './component/resena/resena-creaedita/resena-creaedita.component';
 import { HomeComponent } from './component/home/home.component';
 import { TcomunicacionComponent } from './component/tcomunicacion/tcomunicacion.component';
 import { tcomunicacioncreaeditacomponent } from './component/tcomunicacion/tcomunicacion-creaedita/tcomunicacion-creaedita.component';
-import { ComunicacionComponent } from './component/comunicacion/comunicacion.component';
-import { ComunicacionCreaeditaComponent } from './component/comunicacion/comunicacion-creaedita/comunicacion-creaedita.component';
-
+import { TipodeContenidoComponent } from './component/TipodeContenido/TipodeContenido.component';
+import { TipodeContenidoCreaeditaComponent } from './component/TipodeContenido/TipodeContenido-creaedita/TipodeContenido-creaedita.component';
+import { LoginComponent } from './component/login/login.component';
 const routes: Routes = [
+  {
+    path: 'login', component: LoginComponent
+  },
   {
     path: 'benefactors',
     component: BenefactorComponent,
@@ -42,14 +43,6 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'users',
-    component: UserComponent,
-    children: [
-      { path: 'nuevo', component: UserCreareditaComponent },
-      { path: 'edicion/:id', component: UserCreareditaComponent },
-    ],
-  },
-  {
     path: 'resenas',
     component: ResenaComponent,
     children: [
@@ -62,10 +55,6 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: '',
-    component: HomeComponent,
-  },
-  {
     path: 'TipodeComunicacion',
     component: TcomunicacionComponent,
     children: [
@@ -74,9 +63,11 @@ const routes: Routes = [
     ],
   },
   {
-    path: 'comunicaciones', component: ComunicacionComponent, children: [
-      { path: 'nuevo', component: ComunicacionCreaeditaComponent},
-      { path: 'edicion/:id', component: ComunicacionCreaeditaComponent }
+    path: 'TipodeContenido',
+    component: TipodeContenidoComponent,
+    children: [
+      { path: 'nuevo', component: TipodeContenidoCreaeditaComponent},
+      { path: 'edicion/:idTipodeContenido', component: TipodeContenidoCreaeditaComponent }
     ]
   }
 ];

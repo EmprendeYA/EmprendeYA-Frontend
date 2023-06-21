@@ -29,7 +29,7 @@ export class PreguntasService {
     return this.http.get<Preguntas>(`${this.url}/${id}`);
   }
   update(pre: Preguntas){
-    return this.http.put(this.url + "/" + pre.id, pre);
+    return this.http.put(this.url, pre);
   }
   delete(id:number){
     return this.http.delete(`${this.url}/${id}`)

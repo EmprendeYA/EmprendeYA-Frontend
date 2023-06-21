@@ -15,7 +15,7 @@ export class ResenaListarComponent implements OnInit {
   lista: Resena[] = []
   dataSource: MatTableDataSource<Resena> = new MatTableDataSource();
   idMayor: number = 0;
-  displayPlayedColumns: string[] = ['Codigo', 'Descripcion', 'CodigoP','acciones1','acciones2'];
+  displayPlayedColumns: string[] = ['Codigo', 'Descripcion','emprendedor','acciones1','acciones2'];
 
   constructor(private rS: ResenaService, private dialog: MatDialog) { }
 

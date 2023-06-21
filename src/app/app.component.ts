@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { LoginService } from './service/login.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'demoCrud';
-  serverData: any;
-  constructor(private http: HttpClient) {}
-  ngOnInit() {
-    this.http.get('http://localhost:5000').subscribe(data => {
-      this.serverData = data;
-      console.log(this.serverData);
-    });
-  }
+  constructor(public router:ActivatedRoute){}
 }
 

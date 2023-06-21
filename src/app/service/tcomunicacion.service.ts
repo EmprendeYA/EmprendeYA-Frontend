@@ -30,7 +30,7 @@ export class tcomunicacionService {
     return this.http.get<TipoComunicacion>(`${this.url}/${id}`);
   }
   update(aut: TipoComunicacion) {
-    return this.http.put(this.url + "/" + aut.id, aut);
+    return this.http.put(this.url , aut);
   }
   //http- HttpClientModule: get-post-put-delete, hacer un cuadro comparativo
 

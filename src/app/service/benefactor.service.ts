@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Benefactor } from '../model/benefactor';
@@ -14,7 +14,10 @@ export class BenefactorService {
 
   constructor(private http: HttpClient) {}
   list() {
-    return this.http.get<Benefactor[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Benefactor[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   insert(benefactor: Benefactor) {
     return this.http.post(this.url, benefactor);
@@ -29,7 +32,7 @@ export class BenefactorService {
     return this.http.get<Benefactor>(`${this.url}/${id}`);
   }
   update(ben: Benefactor){
-    return this.http.put(this.url + "/" + ben.id, ben);
+    return this.http.put(this.url, ben);
   }
   delete(id:number){
     return this.http.delete(`${this.url}/${id}`)

@@ -9,13 +9,13 @@
 <body>
   <div class="container">
     <div style="text-align: center">
-    <h1 style="font-family:'Lucida Sans'">Lista de Tipos de Contenido</h1>
+    <h1 style="font-family:'Lucida Sans'"><strong>Lista de Tipos de Contenido</strong></h1>
   </div>
 <div class="filtrado">
   <mat-form-field>
     <input matInput (keyup)=filter($event) placeholder="Buscar"/>
   </mat-form-field>
-  <button class="btn" mat-raised-button color="primary" routerLink="/comunicaciones/nuevo">Agregar</button>
+  <button class="btn" mat-raised-button color="primary" routerLink="/TipodeContenido/nuevo">Agregar</button>
 </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -25,36 +25,50 @@
     <!-- Position Column -->
     <ng-container matColumnDef="codigo">
       <th mat-header-cell *matHeaderCellDef> ID. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.idTipodeContenido}} </td>
     </ng-container>
 
     <!-- Name Column -->
-    <ng-container matColumnDef="nombreTipoComunicacion">
+    <ng-container matColumnDef="nombreTipodeContenido">
       <th mat-header-cell *matHeaderCellDef> Nombre </th>
-      <td mat-cell *matCellDef="let element"> {{element.nombreTipoComunicacion}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.nombreTipodeContenido}} </td>
     </ng-container>
 
     <!-- Weight Column -->
-    <ng-container matColumnDef="descripcionTipoComunicacion">
+    <ng-container matColumnDef="descripcionTipodeContenido">
       <th mat-header-cell *matHeaderCellDef> Descripción </th>
-      <td mat-cell *matCellDef="let element"> {{element.descripcionTipoComunicacion}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.descripcionTipodeContenido}} </td>
     </ng-container>
+
+    <ng-container matColumnDef="emprendedor">
+      <th mat-header-cell *matHeaderCellDef>Emprendedor</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.emprendedor.nombreEmprendedor}}
+      </td>
+    </ng-container>
+
     <ng-container matColumnDef="acciones1">
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="primary" [routerLink]="['edicion',element.id]">Actualizar</button>
+        <button mat-raised-button color="primary" [routerLink]="['edicion',element.idTipodeContenido]">Actualizar</button>
       </td>
     </ng-container>
     <ng-container matColumnDef="acciones2">
       <th mat-header-cell *matHeaderCellDef> Acciones </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button color="warn" (click)="confirm(element.id)"><span class="material-icons">delete</span></button>
+        <button mat-raised-button color="warn" (click)="confirm(element.idTipodeContenido)"><span class="material-icons">delete</span></button>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No existe registro.</td>
+    </tr>
   </table>
+
+  <mat-paginator  [pageSizeOptions]="[1, 3, 5]" aria-label="Select page of users"></mat-paginator>
+
 
 </div>
 </body>

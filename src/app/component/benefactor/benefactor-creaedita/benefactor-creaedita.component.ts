@@ -42,6 +42,7 @@ export class BenefactorCreaeditaComponent implements OnInit {
     this.benefactor.nameBenefactor = this.form.value['nameBenefactor'];
     this.benefactor.ocupation = this.form.value['ocupation'];
     this.benefactor.interest = this.form.value['interest'];
+    
     if (
       this.form.value['nameBenefactor'].length > 0 &&
       this.form.value['ocupation'].length > 0 &&

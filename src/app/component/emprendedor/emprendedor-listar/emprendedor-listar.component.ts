@@ -15,11 +15,8 @@ export class EmprendedorListarComponent implements OnInit{
   lista:Emprendedor[]=[]
   dataSource: MatTableDataSource<Emprendedor>=new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[]=['id','rubroEmprendedor','nombreEmprendedor','apellidoEmprendedor','edadEmprendedor','accion01','acciones2']
-  constructor(private eS: EmprendedorService, private dialog: MatDialog){
-
-
-  }
+  displayedColumns: string[]=['id','rubroEmprendedor','nombreEmprendedor','apellidoEmprendedor','edadEmprendedor', 'benefactor','accion01','acciones2']
+  constructor(private eS: EmprendedorService, private dialog: MatDialog){}
   ngOnInit(): void {
     this.eS.list().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);

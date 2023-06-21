@@ -32,7 +32,7 @@ insert(emprendedor: Emprendedor){
     return this.http.get<Emprendedor>(`${this.url}/${id}`);
   }
   update(emp: Emprendedor){
-    return this.http.put(this.url + "/" + emp.id,emp);
+    return this.http.put(this.url,emp);
   }
 
   delete(id: number) {

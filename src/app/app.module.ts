@@ -11,8 +11,8 @@ import { EmprendedorComponent } from './component/emprendedor/emprendedor.compon
 import { BenefactorListarComponent } from './component/benefactor/benefactor-listar/benefactor-listar.component';
 import { PreguntasListarComponent } from './component/preguntas/preguntas-listar/preguntas-listar.component'
 import { EmprendedorListarComponent } from './component/emprendedor/emprendedor-listar/emprendedor-listar.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatTableModule} from '@angular/material/table'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule} from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BenefactorCreaeditaComponent } from './component/benefactor/benefactor-creaedita/benefactor-creaedita.component';
 import { PreguntasCreaeditaComponent } from './component/preguntas/preguntas-creaedita/preguntas-creaedita.component';
@@ -25,23 +25,26 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PreguntasDialogoComponent } from './component/preguntas/preguntas-listar/component/preguntas-dialogo/preguntas-dialogo.component';
 import { EmprendedorDialogoComponent } from './component/emprendedor/emprendedor-dialogo/emprendedor-dialogo.component';
 import { ResenaComponent } from './component/resena/resena.component';
-import { UserComponent } from './component/user/user.component';
+
 import { ResenaListarComponent } from './component/resena/resena-listar/resena-listar.component';
 import { ResenaCreaeditaComponent } from './component/resena/resena-creaedita/resena-creaedita.component';
 import { ResenaDialogoComponent } from './component/resena/resena-dialogo/resena-dialogo.component';
-import { UserListarComponent } from './component/user/user-listar/user-listar.component';
-import { UserCreareditaComponent } from './component/user/user-crearedita/user-crearedita.component';
-import { UserDialogoComponent } from './component/user/user-dialogo/user-dialogo.component';
 import { HomeComponent } from './component/home/home.component';
 import { TcomunicacionComponent } from './component/tcomunicacion/tcomunicacion.component';
 import { tcomunicacionListarComponent } from './component/tcomunicacion/tcomunicacion-listar/tcomunicacion-listar.component';
 import { tcomunicacioncreaeditacomponent } from './component/tcomunicacion/tcomunicacion-creaedita/tcomunicacion-creaedita.component';
 import { TcomunicacionDialogoComponent } from './component/tcomunicacion/tcomunicacion-dialogo/tcomunicacion-dialogo.component';
-import { ComunicacionComponent } from './component/comunicacion/comunicacion.component';
-import { ComunicacionListarComponent } from './component/comunicacion/comunicacion-listar/comunicacion-listar.component';
-import { ComunicacionCreaeditaComponent } from './component/comunicacion/comunicacion-creaedita/comunicacion-creaedita.component';
-import { ComunicacionDialogoComponent } from './component/comunicacion/comunicacion-dialogo/comunicacion-dialogo.component';
-
+import { MatSelectModule } from '@angular/material/select';
+import { TipodeContenidoComponent } from './component/TipodeContenido/TipodeContenido.component';
+import { TipodeContenidoListarComponent } from './component/TipodeContenido/TipodeContenido-listar/TipodeContenido-listar.component';
+import { TipodeContenidoCreaeditaComponent } from './component/TipodeContenido/TipodeContenido-creaedita/TipodeContenido-creaedita.component';
+import { TipodeContenidoDialogoComponent } from './component/TipodeContenido/TipodeContenido-dialogo/TipodeContenido-dialogo.component';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import {MatCardModule} from '@angular/material/card';
+import { LoginComponent } from './component/login/login.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ToolbarComponent } from './component/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -59,22 +62,20 @@ import { ComunicacionDialogoComponent } from './component/comunicacion/comunicac
     EmprendedorCreaeditaComponent,
     EmprendedorDialogoComponent,
     ResenaComponent,
-    UserComponent,
     ResenaListarComponent,
     ResenaCreaeditaComponent,
     ResenaDialogoComponent,
-    UserListarComponent,
-    UserCreareditaComponent,
-    UserDialogoComponent,
     HomeComponent,
     TcomunicacionComponent,
     tcomunicacionListarComponent,
     tcomunicacioncreaeditacomponent,
     TcomunicacionDialogoComponent,
-    ComunicacionComponent,
-    ComunicacionListarComponent,
-    ComunicacionCreaeditaComponent,
-    ComunicacionDialogoComponent
+    TipodeContenidoComponent,
+    TipodeContenidoListarComponent,
+    TipodeContenidoCreaeditaComponent,
+    TipodeContenidoDialogoComponent,
+    LoginComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -90,6 +91,11 @@ import { ComunicacionDialogoComponent } from './component/comunicacion/comunicac
     MatDialogModule,
     MatToolbarModule,
     MatIconModule,
+    MatSelectModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
