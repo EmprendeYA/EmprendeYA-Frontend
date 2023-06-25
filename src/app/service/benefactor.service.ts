@@ -20,7 +20,10 @@ export class BenefactorService {
     });
   }
   insert(benefactor: Benefactor) {
-    return this.http.post(this.url, benefactor);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, benefactor, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   setList(ListaNueva: Benefactor[]) {
     this.listaCambio.next(ListaNueva);

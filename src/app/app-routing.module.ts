@@ -14,6 +14,9 @@ import { tcomunicacioncreaeditacomponent } from './component/tcomunicacion/tcomu
 import { TipodeContenidoComponent } from './component/TipodeContenido/TipodeContenido.component';
 import { TipodeContenidoCreaeditaComponent } from './component/TipodeContenido/TipodeContenido-creaedita/TipodeContenido-creaedita.component';
 import { LoginComponent } from './component/login/login.component';
+import { ReportesComponent } from './component/reportes/reportes.component';
+import { Reporte9Component } from './component/reportes/reporte9/reporte9.component';
+import { Reporte8Component } from './component/reportes/reporte8/reporte8.component';
 const routes: Routes = [
   {
     path: 'login', component: LoginComponent
@@ -69,6 +72,13 @@ const routes: Routes = [
       { path: 'nuevo', component: TipodeContenidoCreaeditaComponent},
       { path: 'edicion/:idTipodeContenido', component: TipodeContenidoCreaeditaComponent }
     ]
+  },
+  {
+    path:'reportes',component:ReportesComponent,children:[
+
+    { path: 'reporte9', component: Reporte9Component },
+    { path: 'reporte8', component: Reporte8Component },
+  ]
   }
 ];
 

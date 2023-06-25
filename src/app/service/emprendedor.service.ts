@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Emprendedor } from '../model/emprendedor';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 const base_url=environment.base
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,17 @@ private listaCambio=new Subject<Emprendedor[]>()
 
   constructor(private http:HttpClient) { }
   list(){
-    return this.http.get<Emprendedor[]>(this.url);
+     let token = sessionStorage.getItem("token");
+    return this.http.get<Emprendedor[]>(this.url,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
 insert(emprendedor: Emprendedor){
-  return this.http.post(this.url,emprendedor)
+   let token = sessionStorage.getItem("token");
+  return this.http.post(this.url,emprendedor,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    })
   }
 
   setlist(listaNueva: Emprendedor[]){
@@ -44,5 +50,11 @@ insert(emprendedor: Emprendedor){
   }
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
+}
+getempren_edad(): Observable<Emprendedor[]> {
+  let token = sessionStorage.getItem("token");
+  return this.http.get<Emprendedor[]>(`${this.url}/empren_tc`, {
+    headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
 }
 }

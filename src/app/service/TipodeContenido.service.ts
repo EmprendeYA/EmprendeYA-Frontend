@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { TipodeContenido } from '../model/TipodeContenido';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { EmprendedorTipoContDTO } from '../model/EmprendedorTipoContDTO';
 const base_url = environment.base
 @Injectable({
   providedIn: 'root'
@@ -43,5 +44,13 @@ export class TipodeContenidoService {
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
   }
+  getempren_mayortc(): Observable<EmprendedorTipoContDTO[]> {
+    let token = sessionStorage.getItem("token");
+    return this.http.get<EmprendedorTipoContDTO[]>(`${this.url}/empren_tc`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
+  }
+
+
 }
 

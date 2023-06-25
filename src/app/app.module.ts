@@ -44,7 +44,10 @@ import { MatSortModule } from '@angular/material/sort';
 import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './component/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ReportesComponent } from './component/reportes/reportes.component';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import { Reporte9Component } from './component/reportes/reporte9/reporte9.component';
+import { Reporte8Component } from './component/reportes/reporte8/reporte8.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +78,10 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
     TipodeContenidoCreaeditaComponent,
     TipodeContenidoDialogoComponent,
     LoginComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ReportesComponent,
+    Reporte9Component,
+    Reporte8Component
   ],
   imports: [
     BrowserModule,

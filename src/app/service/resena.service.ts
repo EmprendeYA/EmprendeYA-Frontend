@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Resena } from '../model/resena';
 import { HttpClient } from '@angular/common/http';
+import { EmprendedorTipoContDTO } from '../model/EmprendedorTipoContDTO';
 
 const base_url = environment.base
 @Injectable({
