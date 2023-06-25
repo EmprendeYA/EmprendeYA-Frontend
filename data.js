@@ -1,0 +1,184 @@
+module.exports = function () {
+  var data = {
+    benefactors: [
+      {
+        id:1,
+        nameBenefactor: "Luis Pérez Reyes",
+        ocupation: "Ingeniero civil",
+        interest:"billeteras y carteras",
+      },
+      {
+        id:2,
+        nameBenefactor: "Maria Bolaños Ruiz",
+        ocupation: "Arquitecta",
+        interest:"ropa de moda",
+      },
+      {
+        id:3,
+        nameBenefactor: "Francesco Garay Montes",
+        ocupation: "Periodista",
+        interest:"tecnología",
+      },
+      {
+        id:4,
+        nameBenefactor: "Xiara Romero Camargo",
+        ocupation: "Abogada",
+        interest:"ternos y sastres",
+      },
+      {
+        id:5,
+        nameBenefactor: "Valeria Angeles Esquivel",
+        ocupation: "Contadora",
+        interest:"calzado de cuero",
+	}
+    ],
+    preguntas:[
+      {
+        id: 1,
+        namePregunta: "¿Cualquier persona puede emprender?",
+	      descripcion: "No todo el mundo tiene las capacidades y habilidades necesarias para emprender, Un emprendedor debe ser capaz de sostener siempre la más intensa batalla para dar a conocer su proyecto y echarlo a andar, luego debe ser capaz de sobreponerse a todos los tropiezos que encontrará en el trayecto. Si eres una persona constante, con las ideas claras y con una gran fuerza de voluntad, sin duda estás en el buen camino.",
+      },
+      {
+        id: 2,
+        namePregunta: "¿Mi idea es viable para emprender?",
+	      descripcion: "Es muy fácil soñar gracias a nuestra imaginación, pero bastante más complejo convertirlo en algo viable. Debes pensar qué herramientas, técnicas y tecnologías necesitas para llevar a cabo tu idea o proyecto. Cuánta gente necesitas, qué cantidad de dinero deberías invertir o qué necesidades cubriría.",
+      },
+      {
+        id: 3,
+        namePregunta: "¿Cuál es mi cliente objetivo?",
+	      descripcion: "A la hora de lanzar un producto o servicio, debemos tener claro para qué finalidad se ha creado, una vez sepamos qué tipo de necesidades está destinado a cubrir nuestro producto o servicio, debemos pensar a qué tipo de target irá dirigido. Conocer la edad, la ubicación geográfica, los intereses y los hábitos de consumo de los consumidores que tienen empresas del mismo sector.",
+      },
+      {
+        id: 4,
+        namePregunta: "¿Por dónde empiezo?",
+	      descripcion: "Cuando tienes claro que quieres emprender lo que tienes que hacer es crear un plan de negocio en el cual estén contenidos una explicación del producto y servicio. Asimismo, determinar una inversión inicial, tenemos que describir que necesitamos, realizar un estudio de mercado y hablar con otros emprendedores o mentores.",
+      },
+    ],
+    emprendedor: [
+      {
+        id:1,
+        rubroEmprendedor: "Alimentos saludables",
+        nombreEmprendedor: "Luis",
+        apellidoEmprendedor:"reyes",
+	      edadEmprendedor:20,
+
+      },
+      {
+         id:2,
+        rubroEmprendedor: "Food Trucks",
+        nombreEmprendedor: "Leandro",
+        apellidoEmprendedor:"Uceda",
+	      edadEmprendedor:20,
+      },
+      {
+         id:3,
+        rubroEmprendedor: "Cerveza artesanal",
+        nombreEmprendedor: "Miguel",
+        apellidoEmprendedor:"Rodriguez",
+	      edadEmprendedor:20,
+      },
+      {
+         id:4,
+        rubroEmprendedor: "Cuero y cuerinas",
+        nombreEmprendedor: "Sofia",
+        apellidoEmprendedor:"Cameli",
+	      edadEmprendedor:20,
+      }
+    ],
+    users: [
+      {
+        id:1,
+        tipo: "Emprendedor",
+        correo: "lperez@gmail.com",
+        contrasena:"12345678",
+        NumTelefono: "908765678",
+        CuentaFB:"lperez@gmail.com",
+        CuentaGMAIL:"lperez@gmail.com",
+      },
+      {
+        id:2,
+        tipo: "Emprendedor",
+        correo: "ksanchez@gmail.com",
+        contrasena:"12345678",
+        NumTelefono: "908765678",
+        CuentaFB:"ksanchez@gmail.com",
+        CuentaGMAIL:"ksanchez@gmail.com",
+      },
+      {
+        id:3,
+        tipo: "Benefactor",
+        correo: "jmeza@gmail.com",
+        contrasena:"12345678",
+        NumTelefono: "908765678",
+        CuentaFB:"jmeza@gmail.com",
+        CuentaGMAIL:"jmeza@gmail.com",
+      },
+      {
+        id:4,
+        tipo: "Benefactor",
+        correo: "pvillegas@gmail.com",
+        contrasena:"12345678",
+	      NumTelefono: "908765678",
+	      CuentaFB:"pvillegas@gmail.com",
+	      CuentaGMAIL:"pvillegas@gmail.com",
+	    }
+    ],
+    resenas:[
+      {
+        id:1,
+        descripcion:"Me encuentro satisfecho de participar en este proyecto",
+        idProp: 1,
+      },
+      {
+        id:2,
+        descripcion:"Me encuentro satisfecho de participar en este proyecto",
+        idProp: 2,
+      },
+      {
+        id:3,
+        descripcion:"Me encuentro satisfecho de participar en este proyecto",
+        idProp: 3,
+      }
+    ],
+    TipodeComunicacion: [
+      {
+        id:1,
+        nameTC: "Mensaje",
+        descripcionTC: "Escribir mensaje",
+      },
+      {
+        id:2,
+        nameTC: "Llamada",
+        descripcionTC: "Realizar llamada",
+      },
+      {
+        id:3,
+        nameTC: "Videollamada",
+        descripcionTC: "Realizar videollamada",
+      },
+    ],
+    comunicaciones: [
+      {
+        id:1,
+        nombreTipoComunicacion:"Videos",
+        descripcionTipoComunicacion: "Emprendedor sube videos de su emprendimiento",
+      },
+      {
+        id:2,
+        nombreTipoComunicacion: "Imagenes",
+        descripcionTipoComunicacion: "Emprendedor sube fotos de sus productos",
+      },
+      {
+        id:3,
+        nombreTipoComunicacion: "Videos",
+        descripcionTipoComunicacion: "Emprendedor accede a contenido educativo",
+      },
+      {
+        id:4,
+        nombreTipoComunicacion: "Imagenes",
+        descripcionTipoComunicacion: "Emprendedor sube la galeria de su emprendimiento",
+	}
+    ]
+  }
+  return data
+}

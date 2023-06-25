@@ -1,0 +1,16 @@
+.container{
+  text-align: center;
+}
+.btn{
+  background-color:#00A4D3;
+  margin-left: 20px;
+}
+.filtrado{
+  width: 100%;
+  margin: auto;
+}
+mat-form-field{
+  width: 70%;
+}
+
+
