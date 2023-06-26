@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <div style="text-align: center">
-        <h1 style="font-family:'Lucida Sans'">Lista de Preguntas Frecuentes</h1>
+        <h1 style="font-family:'Lucida Sans'"><strong>Lista de Preguntas Frecuentes</strong></h1>
       </div>
 <div class="filtrado">
       <mat-form-field>
@@ -52,6 +52,20 @@
 
         <!-- Symbol Column -->
 
+        <ng-container matColumnDef="benefactor">
+          <th mat-header-cell *matHeaderCellDef>Benefactor</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.benefactor.nameBenefactor }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="emprendedor">
+          <th mat-header-cell *matHeaderCellDef>Emprendedor</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.emprendedor.nombreEmprendedor}}
+          </td>
+        </ng-container>
+
         <ng-container matColumnDef="acciones1">
           <th mat-header-cell *matHeaderCellDef> Acciones </th>
           <td mat-cell *matCellDef="let element">
@@ -66,9 +80,17 @@
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        <mat-paginator  [pageSizeOptions]="[1, 3, 5]" aria-label="Select page of users"></mat-paginator>
-      </table>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No existe registro.</td>
+        </tr>
+          </table>
+          <mat-card>
+            <mat-card-footer>
+              <mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons="">
+              </mat-paginator>
+            </mat-card-footer>
+          </mat-card>
     </div>
   </body>
 </html>

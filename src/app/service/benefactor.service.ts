@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Benefactor } from '../model/benefactor';
@@ -14,10 +14,16 @@ export class BenefactorService {
 
   constructor(private http: HttpClient) {}
   list() {
-    return this.http.get<Benefactor[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Benefactor[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   insert(benefactor: Benefactor) {
-    return this.http.post(this.url, benefactor);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, benefactor, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   setList(ListaNueva: Benefactor[]) {
     this.listaCambio.next(ListaNueva);
@@ -26,13 +32,22 @@ export class BenefactorService {
     return this.listaCambio.asObservable();
   }
   listId(id: number) {
-    return this.http.get<Benefactor>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Benefactor>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   update(ben: Benefactor){
-    return this.http.put(this.url, ben);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url, ben, {
+     headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+   });
   }
   delete(id:number){
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   getConfirmDelete(){
     return this.confirmarEliminacion.asObservable();

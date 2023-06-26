@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { TipoComunicacion } from '../model/TipoComunicacion';
@@ -14,10 +14,16 @@ export class tcomunicacionService {
 
   constructor(private http: HttpClient) { }
   list() {
-    return this.http.get<TipoComunicacion[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<TipoComunicacion[]>(this.url, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   insert(tcomunicacion: TipoComunicacion) {
-    return this.http.post(this.url, tcomunicacion);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, tcomunicacion, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   setList(listaNueva: TipoComunicacion[]) {
@@ -27,15 +33,24 @@ export class tcomunicacionService {
     return this.listaCambio.asObservable();
   }
   listId(id: number) {
-    return this.http.get<TipoComunicacion>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<TipoComunicacion>(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   update(aut: TipoComunicacion) {
-    return this.http.put(this.url , aut);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url, aut, {
+     headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+   });
   }
   //http- HttpClientModule: get-post-put-delete, hacer un cuadro comparativo
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   getConfirmDelete(){
@@ -44,5 +59,9 @@ export class tcomunicacionService {
   setConfirmDelete(estado:Boolean){
     this.confirmarEliminacion.next(estado);
   }
+
+  getTipodeComunicacionCountByEmprendedor() {
+    throw new Error('Method not implemented.');
+}
 }
 

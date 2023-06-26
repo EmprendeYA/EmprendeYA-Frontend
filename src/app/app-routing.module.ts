@@ -14,6 +14,15 @@ import { tcomunicacioncreaeditacomponent } from './component/tcomunicacion/tcomu
 import { TipodeContenidoComponent } from './component/TipodeContenido/TipodeContenido.component';
 import { TipodeContenidoCreaeditaComponent } from './component/TipodeContenido/TipodeContenido-creaedita/TipodeContenido-creaedita.component';
 import { LoginComponent } from './component/login/login.component';
+import { ReportesComponent } from './component/reportes/reportes.component';
+import { Reporte1Component } from './component/reportes/reporte1/reporte1.component';
+import { Reporte2Component } from './component/reportes/reporte2/reporte2.component';
+import { Reporte05Component } from './component/reportes/reporte05/reporte05.component';
+import { Reporte06Component } from './component/reportes/reporte06/reporte06.component';
+import { Reporte9Component } from './component/reportes/reporte9/reporte9.component';
+import { Reporte8Component } from './component/reportes/reporte8/reporte8.component';
+import { Reporte01Component } from './component/reportes/reporte01/reporte01.component';
+import { Reporte02Component } from './component/reportes/reporte02/reporte02.component';
 const routes: Routes = [
   {
     path: 'login', component: LoginComponent
@@ -68,6 +77,19 @@ const routes: Routes = [
     children: [
       { path: 'nuevo', component: TipodeContenidoCreaeditaComponent},
       { path: 'edicion/:idTipodeContenido', component: TipodeContenidoCreaeditaComponent }
+    ]
+  },
+  {
+    path:'reportes',component:ReportesComponent,children:[
+
+      { path: 'reporte1', component: Reporte1Component },
+      { path: 'reporte2', component: Reporte2Component },
+      { path: 'reporte05', component: Reporte05Component},
+      { path: 'reporte06', component: Reporte06Component },
+      { path: 'reporte9', component: Reporte9Component },
+      { path: 'reporte8', component: Reporte8Component },
+      { path: 'reporte07', component: Reporte02Component },
+      { path: 'reporte10', component: Reporte01Component },
     ]
   }
 ];

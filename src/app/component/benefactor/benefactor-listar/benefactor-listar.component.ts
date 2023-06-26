@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Benefactor } from 'src/app/model/benefactor';
 import {MatTableDataSource} from '@angular/material/table'
 import { BenefactorService } from 'src/app/service/benefactor.service';
 import { MatDialog } from '@angular/material/dialog'
 import { BenefactorDialogoComponent } from './component/benefactor-dialogo/benefactor-dialogo.component';
+import {MatPaginator} from '@angular/material/paginator';
+import { MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-benefactor-listar',
@@ -16,15 +18,17 @@ export class BenefactorListarComponent implements OnInit {
   idMayor: number = 0
   displayedColumns: string[]=['Codigo', 'Nombre', 'Ocupacion','Intereses','acciones1','acciones2']
 
-  constructor(private aS: BenefactorService, private dialog:MatDialog){
-
-  }
+  constructor(private aS: BenefactorService, private dialog:MatDialog){ }
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   ngOnInit():void{
 this.aS.list().subscribe(data=>{
   this.dataSource= new MatTableDataSource(data);
+  this.dataSource.paginator = this.paginator;
 })
 this.aS.getList().subscribe(data=>{
   this.dataSource=new MatTableDataSource(data);
+  this.dataSource.paginator = this.paginator;
 })
 
 this.aS.getConfirmDelete().subscribe(data =>{

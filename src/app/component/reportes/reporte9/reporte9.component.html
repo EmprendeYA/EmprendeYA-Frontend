@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div style=" text-align: center;">
+      <h1>cantidad de Tipos de Contenidos por Emprendedor</h1>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef> ID </th>
+        <td mat-cell *matCellDef="let element of bookCounts"> {{element.ID}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre_empren">
+        <th mat-header-cell *matHeaderCellDef> nombre_empren </th>
+        <td mat-cell *matCellDef="let element of bookCounts"> {{element.nombre_empren}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="apellido_empren">
+        <th mat-header-cell *matHeaderCellDef> apellido_empren </th>
+        <td mat-cell *matCellDef="let element of bookCounts"> {{element.apellido_empren}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="edad_empren">
+        <th mat-header-cell *matHeaderCellDef> edad_empren </th>
+        <td mat-cell *matCellDef="let element of bookCounts"> {{element.edad_empren}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="rubro_empren">
+        <th mat-header-cell *matHeaderCellDef> rubro_empren </th>
+        <td mat-cell *matCellDef="let element of bookCounts"> {{element.rubro_empren}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="benef_ID">
+        <th mat-header-cell *matHeaderCellDef> benef_ID </th>
+        <td mat-cell *matCellDef="let element of bookCounts"> {{element.benef_ID}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</body>
+
+</html>

@@ -25,7 +25,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { PreguntasDialogoComponent } from './component/preguntas/preguntas-listar/component/preguntas-dialogo/preguntas-dialogo.component';
 import { EmprendedorDialogoComponent } from './component/emprendedor/emprendedor-dialogo/emprendedor-dialogo.component';
 import { ResenaComponent } from './component/resena/resena.component';
-
 import { ResenaListarComponent } from './component/resena/resena-listar/resena-listar.component';
 import { ResenaCreaeditaComponent } from './component/resena/resena-creaedita/resena-creaedita.component';
 import { ResenaDialogoComponent } from './component/resena/resena-dialogo/resena-dialogo.component';
@@ -45,6 +44,18 @@ import {MatCardModule} from '@angular/material/card';
 import { LoginComponent } from './component/login/login.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { ReportesComponent } from './component/reportes/reportes.component';
+import { Reporte1Component } from './component/reportes/reporte1/reporte1.component';
+import { Reporte2Component } from './component/reportes/reporte2/reporte2.component';
+import { Reporte05Component } from './component/reportes/reporte05/reporte05.component';
+import { Reporte06Component } from './component/reportes/reporte06/reporte06.component';
+import { Reporte8Component } from './component/reportes/reporte8/reporte8.component';
+import { Reporte9Component } from './component/reportes/reporte9/reporte9.component';
+import { Reporte03Component } from './component/reportes/reporte03/reporte03.component';
+import { Reporte04Component } from './component/reportes/reporte04/reporte04.component';
+import { Reporte01Component } from './component/reportes/reporte01/reporte01.component';
+import { Reporte02Component } from './component/reportes/reporte02/reporte02.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +86,18 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
     TipodeContenidoCreaeditaComponent,
     TipodeContenidoDialogoComponent,
     LoginComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ReportesComponent,
+    Reporte1Component,
+    Reporte2Component,
+    Reporte05Component,
+    Reporte06Component,
+    Reporte8Component,
+    Reporte9Component,
+    Reporte03Component,
+    Reporte04Component,
+    Reporte01Component,
+    Reporte02Component
   ],
   imports: [
     BrowserModule,
@@ -95,7 +117,8 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
     MatPaginatorModule,
     MatSortModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

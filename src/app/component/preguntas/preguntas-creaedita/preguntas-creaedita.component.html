@@ -27,6 +27,24 @@
       <input matInput required placeholder="ingrese descripcion" formControlName = "descripcion">
     </mat-form-field>
 
+    <mat-form-field class="example-full-width">
+      <mat-label>Benefactor</mat-label>
+      <mat-select formControlName="benefactor" [(value)]="idBenefactorSeleccionado" required>
+      <mat-option *ngFor="let b of lista" [value]="b.id">
+           {{b.nameBenefactor}}
+      </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Emprendedor</mat-label>
+      <mat-select formControlName="emprendedor" [(value)]="idEmprendedorSeleccionado" required>
+      <mat-option *ngFor="let e of lista1" [value]="e.id">
+           {{e.nombreEmprendedor}}
+      </mat-option>
+      </mat-select>
+    </mat-form-field>
+
      <div class="container">
       <button mat-raised-button color="primary" (click)="aceptar()">Aceptar</button>
       <button mat-raised-button color="warn" routerLink="/preguntas" >Cancelar</button>

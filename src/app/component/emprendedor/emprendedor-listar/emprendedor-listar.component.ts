@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Emprendedor } from 'src/app/model/emprendedor';
 import { EmprendedorService } from 'src/app/service/emprendedor.service';
 import { EmprendedorDialogoComponent } from '../emprendedor-dialogo/emprendedor-dialogo.component';
+import {MatPaginator} from '@angular/material/paginator';
+import { MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-emprendedor-listar',
@@ -17,13 +19,17 @@ export class EmprendedorListarComponent implements OnInit{
   idMayor: number = 0
   displayedColumns: string[]=['id','rubroEmprendedor','nombreEmprendedor','apellidoEmprendedor','edadEmprendedor', 'benefactor','accion01','acciones2']
   constructor(private eS: EmprendedorService, private dialog: MatDialog){}
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   ngOnInit(): void {
     this.eS.list().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
 
     this.eS.getlist().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     })
 
     this.eS.getConfirmDelete().subscribe(data => {
